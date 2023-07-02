@@ -6,6 +6,7 @@ import time, warnings
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 #########     CONFIG   ####################
 ###########################################3
@@ -15,7 +16,8 @@ chrome_options.add_argument("--headless")#FOR HIDDEN EXECUTE
 chrome_options.add_argument('--lang=en')#Change the lang. to ENGLISH
 chrome_options.add_experimental_option("excludeSwitches", ["enable-logging"])
 path_webdriver = 'chromedriver.exe'#########PATH OF CHROMEDRIVER, YOU HAVE TO CHANGE IT
-driver = webdriver.Chrome(executable_path=path_webdriver, options=chrome_options)
+service = Service(executable_path=path_webdriver)
+driver = webdriver.Chrome(service=service, options=chrome_options)
 ############################################
 
 #Short the url of the picture url
